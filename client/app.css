@@ -1,0 +1,11 @@
+.photoContainer {
+  display: flex;
+}
+
+.mainColumn {
+  flex: 2;
+}
+
+.subColumn {
+  flex: 1;
+}
