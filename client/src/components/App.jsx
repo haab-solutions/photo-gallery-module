@@ -25,6 +25,15 @@ class App extends Component {
             <div><img src={img4}/></div>
             <div><img src={img5}/></div>
           </div>
+          <div className="share-save">
+            <button>Share</button>
+            <button>Save</button>
+          </div>
+          <div className="view-photos">
+            <button>
+            View Photos
+            </button>
+          </div>
         </div>
       </div>
     )
