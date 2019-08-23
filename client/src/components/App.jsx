@@ -10,7 +10,11 @@ import img5 from '../../data/5.jpg';
 class App extends Component {
   constructor(props) {
   super(props);
+
+  this.onClick.bind(this)
   }
+
+  onClick(){}
 
   render() {
     return (
@@ -18,16 +22,16 @@ class App extends Component {
         <div className="photo-container">
           <div className="main-column"><img src={img1}/></div>
           <div className="sub-column">
-            <div><img src={img2}/></div>
-            <div><img src={img3}/></div>
+            <div className="img"><img src={img2}/></div>
+            <div className="img"><img src={img3}/></div>
           </div>
           <div className="sub-column">
-            <div><img src={img4}/></div>
-            <div><img src={img5}/></div>
+            <div className="img"><img src={img4}/></div>
+            <div className="img"><img src={img5}/></div>
           </div>
           <div className="share-save">
-            <button>Share</button>
-            <button>Save</button>
+            <button className="share" onClick={this.onClick}>Share</button>
+            <button className="save" onCLick={this.onClick}>Save</button>
           </div>
           <div className="view-photos">
             <button>
