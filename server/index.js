@@ -8,7 +8,7 @@ app.use(express.static('public'))
 // app.get('/', (req, res) => res.send('Hello World'))
 
 app.get('/photos/:propertyId', (req, res) => {
-  console.log(req.params)
+  // console.log(req.params)
   res.send('photos request sent')
 })
 

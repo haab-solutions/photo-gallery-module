@@ -22,7 +22,7 @@ connection.query('USE listings', function (err) {
   };
 })
 
-connection.query('CREATE TABLE IF NOT EXISTS propertyListings ( id INT NOT NULL AUTO_INCREMENT, name VARCHAR(50) NOT NULL, property_description VARCHAR(50), PRIMARY KEY (id)) ENGINE=INNODB;', function (err) {
+connection.query('CREATE TABLE IF NOT EXISTS propertyListings ( id INT NOT NULL AUTO_INCREMENT, property_description VARCHAR(50), PRIMARY KEY (id))', function (err) {
   if (err) {
     console.error('error connecting: ' + err.stack)
   } else {
