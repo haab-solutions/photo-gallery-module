@@ -14,11 +14,11 @@ db.query('SHOW DATABASES', (err) => {
 
 // Generate 100 property listings
 for (var i = 0; i < 100; i++){
-  var queryStr =
+  var queryStr = '';
   var propertyListingData = [
-    i, faker.fake("{{lorem.words}}"),
+    i, faker.fake("{{lorem.words}}")
   ]
-  db.query(queryStr, propertyListingData, (err, results) => {})
+  // db.query(queryStr, propertyListingData, (err, results) => {})
 }
 
 // Generate 5 random pics for each property
