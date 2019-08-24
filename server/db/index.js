@@ -2,6 +2,7 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
   user: 'root',
   password: '123456',
+  multipleStatements: true
 })
 
 connection.connect();
