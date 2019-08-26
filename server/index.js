@@ -15,9 +15,9 @@ app.use(bodyParser.urlencoded({ extended: true}))
 
 app.get('/api/photos/:propertyId', (req, res) => {
   const modelsPropertyListingGet = Promise.promisify(models.propertyListing.get)
-  modelsPropertyListingGet((results) => res.json(results))
+  modelsPropertyListingGet((results) =>
+    res.json(results))
     .catch((err) => console.log(err))
-    // res.send('photos request sent')
 })
 
 app.listen(port, () => console.log(`Listening on port ${port}...`))

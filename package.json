@@ -9,8 +9,8 @@
   },
   "scripts": {
     "build": "npx webpack --watch",
-    "start": "nodemon ./server/index.js",
-    "db:seed": "node ./server/index/js"
+    "start": "nodemon ./server/db/index.js",
+    "db:seed": "node ./server/db/seed.js"
   },
   "dependencies": {
     "bluebird": "^3.5.5",
