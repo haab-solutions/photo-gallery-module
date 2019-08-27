@@ -25,14 +25,14 @@ db.query('ALTER TABLE photos DROP FOREIGN KEY photos_ibfk_1;TRUNCATE photos; TRU
 for (var i = 0; i < 100; i++) {
   var queryStr = 'INSERT INTO propertyListings (property_description) value(?);';
   var propertyListingData = [faker.fake("{{lorem.words}}")]
-  db.query(queryStr,propertyListingData, (err, results) => {
+  db.query(queryStr,propertyListingData, (err, results, fields) => {
     if (err) {
       console.log(err)
     } else {
-        // Generate 5 random photos for each property listing
+      // Generate 5 random photos for each property listing
       for (var j = 0; j < 5; j++) {
         var queryStr = 'INSERT INTO photos (src, propertyListing_id) value(?, ?);';
-        var photoData = [`https://bnbair.s3-us-west-1.amazonaws.com/${Math.ceil(Math.random()*5)}.jpg`, i]
+        var photoData = [`https://bnbair.s3-us-west-1.amazonaws.com/${Math.ceil(Math.random()*5)}.jpg`, results.insertId];
         db.query(queryStr, photoData, (err, results) => {
           if (err) console.log(err)
         })
