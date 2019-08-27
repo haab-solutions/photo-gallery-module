@@ -4,24 +4,15 @@ import ReactDOM from 'react-dom';
 import CSSModules from 'react-css-modules';
 import styles from './app.css';
 import axios from 'axios';
-import img1 from '../../data/1.jpg';
-import img2 from '../../data/2.jpg';
-import img3 from '../../data/3.jpg';
-import img4 from '../../data/4.jpg';
-import img5 from '../../data/5.jpg';
 
 class App extends Component {
   constructor(props) {
   super(props);
-
+  this.state  = {
+    photos: this.props.photos
+  }
   this.onClick.bind(this)
   }
-
-  // TODO: Get property id from url item id
-  // componentDidMount(){
-  //   axios.get('/api/photos/1')
-  //     .then((response) => console.log(response))
-  // }
 
   onClick(){}
 
@@ -29,14 +20,14 @@ class App extends Component {
     return (
       <div styleName='main-container'>
         <div styleName='photo-container'>
-          <div styleName="main-column"><img src={img1}/></div>
+          <div styleName="main-column"><img src={this.state.photos[0]['src']}/></div>
           <div styleName="sub-column">
-            <div><img src={img2}/></div>
-            <div><img src={img3}/></div>
+            <div><img src={this.state.photos[1]['src']}/></div>
+            <div><img src={this.state.photos[2]['src']}/></div>
           </div>
           <div styleName="sub-column">
-            <div><img src={img4}/></div>
-            <div><img src={img5}/></div>
+            <div><img src={this.state.photos[3]['src']}/></div>
+            <div><img src={this.state.photos[4]['src']}/></div>
           </div>
           <div styleName="share-save">
             <button onClick={this.onClick}>Share</button>
