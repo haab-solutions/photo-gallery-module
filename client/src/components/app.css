@@ -8,6 +8,7 @@ button {
   border-radius: 2px;
   height: 36px;
   margin: 0px 10px;
+  font-size: 14px;
 }
 
 .share-save {
@@ -38,7 +39,9 @@ button {
 }
 
 .photo-container:hover {
-  filter: brightness(50%)
+  /* filter: brightness(50%);
+  filter:contrast(50%); */
+  filter: brightness(75%);
 }
 
 .main-column {
@@ -77,5 +80,7 @@ img {
 
 img:hover {
   transform: scale(1.1);
-  filter: brightness(175%) !important
+  /* filter: brightness(150%);
+  filter:contrast(150%); */
+  filter: brightness(125%)
 }

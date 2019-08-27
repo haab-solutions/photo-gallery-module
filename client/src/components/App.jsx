@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import '../../app.css';
+// import '../../app.css';
+import CSSModules from 'react-css-modules';
+import styles from './app.css';
+import axios from 'axios';
 import img1 from '../../data/1.jpg';
 import img2 from '../../data/2.jpg';
 import img3 from '../../data/3.jpg';
@@ -14,26 +17,32 @@ class App extends Component {
   this.onClick.bind(this)
   }
 
+  // TODO: Get property id from url item id
+  // componentDidMount(){
+  //   axios.get('/api/photos/1')
+  //     .then((response) => console.log(response))
+  // }
+
   onClick(){}
 
   render() {
     return (
-      <div className="main-container">
-        <div className="photo-container">
-          <div className="main-column"><img src={img1}/></div>
-          <div className="sub-column">
-            <div className="img"><img src={img2}/></div>
-            <div className="img"><img src={img3}/></div>
+      <div styleName='main-container'>
+        <div styleName='photo-container'>
+          <div styleName="main-column"><img src={img1}/></div>
+          <div styleName="sub-column">
+            <div><img src={img2}/></div>
+            <div><img src={img3}/></div>
           </div>
-          <div className="sub-column">
-            <div className="img"><img src={img4}/></div>
-            <div className="img"><img src={img5}/></div>
+          <div styleName="sub-column">
+            <div><img src={img4}/></div>
+            <div><img src={img5}/></div>
           </div>
-          <div className="share-save">
-            <button className="share" onClick={this.onClick}>Share</button>
-            <button className="save" onCLick={this.onClick}>Save</button>
+          <div styleName="share-save">
+            <button onClick={this.onClick}>Share</button>
+            <button onClick={this.onClick}>Save</button>
           </div>
-          <div className="view-photos">
+          <div styleName="view-photos">
             <button>
             View Photos
             </button>
@@ -44,4 +53,5 @@ class App extends Component {
   }
 }
 
-export default App;
+// export default App;
+export default CSSModules(App, styles);
