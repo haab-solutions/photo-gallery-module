@@ -9,12 +9,13 @@ import img2 from '../../data/2.jpg';
 import img3 from '../../data/3.jpg';
 import img4 from '../../data/4.jpg';
 import img5 from '../../data/5.jpg';
+import Modal from './Modal.jsx'
 
 class App extends Component {
   constructor(props) {
   super(props);
 
-  this.onClick.bind(this)
+  this.onClick = this.onClick.bind(this);
   }
 
   // TODO: Get property id from url item id
@@ -27,6 +28,8 @@ class App extends Component {
 
   render() {
     return (
+      <div>
+      <Modal/>
       <div styleName='main-container'>
         <div styleName='photo-container'>
           <div styleName="main-column"><img src={img1}/></div>
@@ -48,6 +51,7 @@ class App extends Component {
             </button>
           </div>
         </div>
+      </div>
       </div>
     )
   }
