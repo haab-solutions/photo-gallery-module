@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import CSSModules from 'react-css-modules';
-import styles from './modal.css';
+// import styles from './modal.css';
 
 class Modal extends Component {
   constructor(props) {
@@ -45,4 +45,5 @@ class Modal extends Component {
   }
 }
 
-export default CSSModules(Modal, styles);
+export default Modal
+// export default CSSModules(Modal, styles);

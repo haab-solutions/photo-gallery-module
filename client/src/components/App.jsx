@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 // import '../../app.css';
 import CSSModules from 'react-css-modules';
-import styles from './app.css';
+// import styles from './app.css';
 import axios from 'axios';
 import Modal from './Modal.jsx';
 
@@ -54,5 +54,5 @@ class App extends Component {
   }
 }
 
-// export default App;
-export default CSSModules(App, styles);
+export default App;
+// export default CSSModules(App, styles);
