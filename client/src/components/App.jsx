@@ -12,14 +12,22 @@ import img3 from '../../data/3.jpg';
 import img4 from '../../data/4.jpg';
 import img5 from '../../data/5.jpg';
 import Modal from './Modal.jsx'
+<<<<<<< HEAD
 >>>>>>> WIP modal component
+=======
+>>>>>>> c765cd5f2d97db103c024296ba2f0955f17d0808
 
 class App extends Component {
   constructor(props) {
   super(props);
 <<<<<<< HEAD
+<<<<<<< HEAD
   this.state  = {
     photos: this.props.photos
+=======
+
+  this.onClick = this.onClick.bind(this);
+>>>>>>> c765cd5f2d97db103c024296ba2f0955f17d0808
   }
   this.onClick.bind(this)
 =======
