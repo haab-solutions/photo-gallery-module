@@ -33,6 +33,6 @@ describe('Photo Gallery', () => {
 
   it('displays images', () => {
     const wrapper = shallow(<App photos={photos}/>)
-    wrapper.find()
+    expect(wrapper.contains(<img src="https://bnbair.s3-us-west-1.amazonaws.com/2.jpg"/>)).toEqual(true);
   })
 })
