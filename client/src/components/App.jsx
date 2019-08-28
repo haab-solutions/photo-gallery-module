@@ -10,20 +10,23 @@ class App extends Component {
   constructor(props) {
   super(props);
   this.state  = {
-    photos: this.props.photos
+    photos: this.props.photos,
+    toggleModal: false
   }
   this.onClick.bind(this)
 
   this.onClick = this.onClick.bind(this);
   }
 
-  onClick(){}
+  onClick(){
+    this.setState({toggleModal: !this.state.toggleModal})
+  }
 
   render() {
     return (
       <div>
-      <Modal photos={this.state.photos}/>
-        <div styleName='main-container'>
+        {this.state.toggleModal ? <Modal photos={this.state.photos} onClick={this.onClick}/> : (
+          <div styleName='main-container'>
           <div styleName='photo-container'>
             <div styleName="main-column"><img src={this.state.photos[0]['src']}/></div>
             <div styleName="sub-column">
@@ -39,12 +42,13 @@ class App extends Component {
               <button onClick={this.onClick}>Save</button>
             </div>
             <div styleName="view-photos">
-              <button>
+              <button onClick={this.onClick}>
               View Photos
               </button>
             </div>
           </div>
         </div>
+        )}
       </div>
     )
   }
