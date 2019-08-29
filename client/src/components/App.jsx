@@ -42,7 +42,7 @@ class App extends Component {
               <button onClick={this.onClick}>Save</button>
             </div>
             <div styleName="view-photos">
-              <button onClick={this.onClick}>
+              <button data-test="view-modal" onClick={this.onClick}>
               View Photos
               </button>
             </div>
