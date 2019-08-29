@@ -25,7 +25,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        {this.state.toggleModal ? <Modal photos={this.state.photos} onClick={this.onClick}/> : (
+        {this.state.toggleModal ? <Modal description={this.props.description} photos={this.state.photos} onClick={this.onClick}/> : (
           <div styleName='main-container'>
           <div styleName='photo-container'>
             <div styleName="main-column"><img src={this.state.photos[0]['src']}/></div>

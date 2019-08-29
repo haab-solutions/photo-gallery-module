@@ -22,6 +22,8 @@ class Modal extends Component {
   }
 
   render() {
+    console.log(this.props.description)
+    const { property_description } = this.props.description
     return (
       <div styleName='modal'>
         <div styleName='portrait'>
@@ -36,8 +38,8 @@ class Modal extends Component {
           <div styleName='carousel'>
             {this.props.photos.map((photo, index) => <div key={index} styleName='card'><img src={photo['src']}/></div>)}
           </div>
-          <div styleName='description'>
-            Description
+          <div className='description' styleName='description'>
+            {property_description}
           </div>
         </div>
       </div>
