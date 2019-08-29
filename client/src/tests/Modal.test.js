@@ -42,5 +42,12 @@ describe('Modal', () => {
   it('display property description', () => {
     expect(wrapper.find('[data-test="description"]').text()).toEqual('quod a nam');
   })
+
+  it('displays next photo', () => {
+  })
+
+  it('displays previous photo', () => {
+
+  })
 })
 
