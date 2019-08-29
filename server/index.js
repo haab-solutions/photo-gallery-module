@@ -7,7 +7,7 @@ const models = require('./models');
 const app = express();
 const port = 3000;
 
-app.use(express.static('public'))
+app.use('/listing/:id', express.static('public'))
 
 app.use(bodyParser.urlencoded({ extended: true}))
 

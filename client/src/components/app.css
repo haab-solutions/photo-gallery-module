@@ -15,12 +15,14 @@ button {
   position: absolute;
   top: 50px;
   right: 50px;
+  z-index: 0;
 }
 
 .view-photos{
   position: absolute;
   top: 300px;
   right: 50px;
+  z-index: 0;
 }
 
 .main-container {
