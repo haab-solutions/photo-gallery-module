@@ -28,10 +28,28 @@
   overflow-x: hidden
 }
 
+.button-container {
+  display: block;
+
+  margin-top: 40px;
+  margin-right: 40px
+}
+
+.button-container button {
+  float: right;
+  margin-right: 150px;
+}
+
 .main {
+  padding-top: 100px;
   width: 200px;
   height: 200px;
   margin: auto
+}
+
+.main img {
+  width: 200px;
+  height: 200px;
 }
 
 .modal {
@@ -46,11 +64,7 @@
   background-color: #fff;
   flex: 2;
   z-index: 10;
-}
-
-.portrait img {
-  width: 200px;
-  height: 200px;
+  filter: none;
 }
 
 .svg {

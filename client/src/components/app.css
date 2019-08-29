@@ -69,18 +69,15 @@ button {
   overflow: hidden
 }
 
-.sub-column img {
+.main-column-img, .sub-column-img {
   width: 110%;
   height: 110%;
   margin: 0px;
   padding: 0px;
-}
-
-img {
   transition: transform 2s ease 0s;
 }
 
-img:hover {
+.main-column-img:hover, .sub-column-img:hover {
   transform: scale(1.1);
   /* filter: brightness(150%);
   filter:contrast(150%); */
