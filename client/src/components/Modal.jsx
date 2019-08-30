@@ -13,14 +13,15 @@ class Modal extends Component {
     this.nextClick = this.nextClick.bind(this);
     this.currentPhotoEffects = this.currentPhotoEffects.bind(this);
     this.removePrevCurrentPhotoEffects = this.removePrevCurrentPhotoEffects.bind(this);
+    this.setCurrentPhoto = this.setCurrentPhoto.bind(this);
   }
 
   removePrevCurrentPhotoEffects() {
-    document.getElementById(`photo-${this.state.currentPhotoId}`).style.border = "none"
+    document.getElementById(`${this.state.currentPhotoId}`).style.border = "none"
   }
 
   currentPhotoEffects() {
-    document.getElementById(`photo-${this.state.currentPhotoId}`).style.border = "solid #484848 2px";
+    document.getElementById(`${this.state.currentPhotoId}`).style.border = "solid #484848 2px";
     // console.log(image)
   }
 
@@ -33,6 +34,11 @@ class Modal extends Component {
   nextClick() {
     this.removePrevCurrentPhotoEffects();
     this.setState({currentPhotoId: this.state.currentPhotoId + 1}, () => this.currentPhotoEffects());
+  }
+
+  setCurrentPhoto(e){
+    this.removePrevCurrentPhotoEffects();
+    this.setState({currentPhotoId: parseInt(e.target.id)}, () => this.currentPhotoEffects());
   }
 
   render() {
@@ -58,7 +64,7 @@ class Modal extends Component {
           </div>
           <div styleName="photo-carousel">
             <div styleName="photo-carousel-wrapper">
-              {this.props.photos.map((photo, index) => <div key={index} styleName='card'><img id={`photo-${index}`} src={photo['src']}/></div>)}
+              {this.props.photos.map((photo, index) => <div key={index} styleName='card' ><img id={`${index}`} src={photo['src']} onClick={this.setCurrentPhoto}/></div>)}
             </div>
           </div>
           <div styleName="info" >
