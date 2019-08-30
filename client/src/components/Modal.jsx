@@ -7,34 +7,46 @@ class Modal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      photoId: 1,
+      currentPhotoId: 0,
     }
     this.prevClick = this.prevClick.bind(this);
     this.nextClick = this.nextClick.bind(this);
+    this.currentPhotoEffects = this.currentPhotoEffects.bind(this);
+    this.removePrevCurrentPhotoEffects = this.removePrevCurrentPhotoEffects.bind(this);
+  }
+
+  removePrevCurrentPhotoEffects() {
+    document.getElementById(`photo-${this.state.currentPhotoId}`).style.border = "none"
+  }
+
+  currentPhotoEffects() {
+    document.getElementById(`photo-${this.state.currentPhotoId}`).style.border = "solid #484848 2px";
+    // console.log(image)
   }
 
   prevClick() {
-    this.setState({photoId: this.state.photoId - 1}, console.log(this.state.photoId))
+    this.removePrevCurrentPhotoEffects();
+    this.setState({currentPhotoId: this.state.currentPhotoId - 1}, () => this.currentPhotoEffects());
+
   }
 
   nextClick() {
-    this.setState({photoId: this.state.photoId + 1}, console.log(this.state.photoId))
-
+    this.removePrevCurrentPhotoEffects();
+    this.setState({currentPhotoId: this.state.currentPhotoId + 1}, () => this.currentPhotoEffects());
   }
 
   render() {
-    console.log(this.props.description)
     const { property_description } = this.props.description
     return (
       <div styleName="modal">
         <div styleName="portrait">
           <div styleName="portrait-button-container">
-            <button data-test="prevPhoto" styleName="prevPhoto" onClick={this.prevClick}>
+            <button data-test="prevPhoto" styleName="prevPhoto" onClick={this.prevClick} disabled={this.state.currentPhotoId === 0}>
               <svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false" styleName="prevPhoto-svg"><path d="m13.7 16.29a1 1 0 1 1 -1.42 1.41l-8-8a1 1 0 0 1 0-1.41l8-8a1 1 0 1 1 1.42 1.41l-7.29 7.29z" fillRule="evenodd"></path></svg>
             </button>
-            <button data-test="nextPhoto" styleName="nextPhoto" onClick={this.nextClick}><svg viewBox="0 0 18 18" styleName="nextPhoto-svg"><path d="m4.29 1.71a1 1 0 1 1 1.42-1.41l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1 -1.42-1.41l7.29-7.29z" fillRule="evenodd"></path></svg></button>
+            <button data-test="nextPhoto" styleName="nextPhoto" onClick={this.nextClick} disabled={this.state.currentPhotoId === this.props.photos.length - 1}><svg viewBox="0 0 18 18" styleName="nextPhoto-svg"><path d="m4.29 1.71a1 1 0 1 1 1.42-1.41l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1 -1.42-1.41l7.29-7.29z" fillRule="evenodd"></path></svg></button>
           </div>
-          <div styleName="main"><img styleName="main-img" src={this.props.photos[0]['src']}/></div>
+          <div styleName="main"><img styleName="main-img" src={this.props.photos[this.state.currentPhotoId]['src']}/></div>
         </div>
         <div styleName="gallery">
           <div styleName="button-container">
@@ -44,8 +56,10 @@ class Modal extends Component {
               </svg>
             </button>
           </div>
-          <div styleName='carousel'>
-            {this.props.photos.map((photo, index) => <div key={index} styleName='card'><img src={photo['src']}/></div>)}
+          <div styleName="photo-carousel">
+            <div styleName="photo-carousel-wrapper">
+              {this.props.photos.map((photo, index) => <div key={index} styleName='card'><img id={`photo-${index}`} src={photo['src']}/></div>)}
+            </div>
           </div>
           <div data-test="description" styleName='description'>
             {property_description}

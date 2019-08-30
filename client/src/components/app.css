@@ -37,9 +37,9 @@ body {
   vertical-align: center;
 }
 
-/* .photo-container:hover {
-  filter: brightness(75%);
-} */
+.photo-container:hover {
+  cursor: pointer;
+}
 
 .main-column {
   box-sizing: border-box;

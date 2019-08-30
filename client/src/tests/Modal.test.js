@@ -44,6 +44,8 @@ describe('Modal', () => {
   })
 
   it('displays next photo', () => {
+    wrapper.find('[data-test]="nextPhoto"]').simulate('click');
+    expect(wrapper.state().photoId).toEqual(2)
   })
 
   it('displays previous photo', () => {
