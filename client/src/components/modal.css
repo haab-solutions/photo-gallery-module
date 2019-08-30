@@ -80,6 +80,17 @@
   float: right;
 }
 
+.nextPhoto, .prevPhoto {
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  margin:0px;
+}
+
+.hide-modal:hover, .portrait:hover {
+  cursor: pointer;
+}
+
 .portrait {
   position: relative;
   width: 100%;
@@ -98,12 +109,10 @@
   margin:auto;
 }
 
-.prevPhoto, .nextPhoto {
-  display: inline-block;
-  width: 50%;
-  height: 100%;
-  margin:0px;
-}
+
+
+
+
 
 
 

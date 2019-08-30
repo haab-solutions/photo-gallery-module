@@ -14,11 +14,12 @@ class Modal extends Component {
   }
 
   prevClick() {
-    this.setState({photoId: this.state.photoId - 1})
+    this.setState({photoId: this.state.photoId - 1}, console.log(this.state.photoId))
   }
 
   nextClick() {
-    this.setState({photoId: this.state.photoId + 1})
+    this.setState({photoId: this.state.photoId + 1}, console.log(this.state.photoId))
+
   }
 
   render() {
@@ -28,10 +29,10 @@ class Modal extends Component {
       <div styleName="modal">
         <div styleName="portrait">
           <div styleName="portrait-button-container">
-            <button data-test="prevPhoto" styleName="prevPhoto">
+            <button data-test="prevPhoto" styleName="prevPhoto" onClick={this.prevClick}>
               <svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false" styleName="prevPhoto-svg"><path d="m13.7 16.29a1 1 0 1 1 -1.42 1.41l-8-8a1 1 0 0 1 0-1.41l8-8a1 1 0 1 1 1.42 1.41l-7.29 7.29z" fillRule="evenodd"></path></svg>
             </button>
-            <button data-test="nextPhoto" styleName="nextPhoto"><svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false" styleName="nextPhoto-svg"><path d="m4.29 1.71a1 1 0 1 1 1.42-1.41l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1 -1.42-1.41l7.29-7.29z" fillRule="evenodd"></path></svg></button>
+            <button data-test="nextPhoto" styleName="nextPhoto" onClick={this.nextClick}><svg viewBox="0 0 18 18" styleName="nextPhoto-svg"><path d="m4.29 1.71a1 1 0 1 1 1.42-1.41l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1 -1.42-1.41l7.29-7.29z" fillRule="evenodd"></path></svg></button>
           </div>
           <div styleName="main"><img styleName="main-img" src={this.props.photos[0]['src']}/></div>
         </div>
