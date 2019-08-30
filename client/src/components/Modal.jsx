@@ -61,8 +61,12 @@ class Modal extends Component {
               {this.props.photos.map((photo, index) => <div key={index} styleName='card'><img id={`photo-${index}`} src={photo['src']}/></div>)}
             </div>
           </div>
-          <div data-test="description" styleName='description'>
-            {property_description}
+          <div styleName="info" >
+            <div >{`${this.state.currentPhotoId + 1}/${this.props.photos.length}`}</div>
+            <div data-test="description">
+              {property_description}
+            </div>
+            <div>Photo Verified by Airbnb</div>
           </div>
         </div>
       </div>
