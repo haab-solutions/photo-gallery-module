@@ -6,7 +6,7 @@
 }
 
 .card {
-  float: left;
+  flex: 1;
   border-radius: 4px;
   padding: 0px 0px 0px 8px;
 }
@@ -113,30 +113,28 @@
 }
 
 .photo-carousel {
-  display: block;
-
   height: 100%;
 }
 
-.photo-carousel-offset {
-  display: flex;
-  position: absolute;
+/* .photo-carousel-offset {
+  box-sizing: border-box;
   width: 100%;
   background-color: white;
   padding-right: 52px;
-}
+} */
 
 .photo-carousel-wrapper {
-  display: inline-block;
-  width: 100%;
+  display: flex;
+  padding: 16px 0px;
   height: 96px;
-  overflow-x: hidden
+  overflow-x: hidden;
+  align-items: center
 }
 
 .photo-carousel-description-container {
   position: absolute;
   top: 152px;
-  min-width: 384px;
+  width: 294px;
 }
 
 .photo-index {

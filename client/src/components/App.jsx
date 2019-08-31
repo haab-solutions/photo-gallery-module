@@ -42,7 +42,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        {this.state.toggleModal ? <Modal description={this.props.description} photos={this.state.photos} onClick={this.onClick}/> : (
+        <Modal description={this.props.description} photos={this.state.photos} onClick={this.onClick}/>
+        {/* {this.state.toggleModal ? <Modal description={this.props.description} photos={this.state.photos} onClick={this.onClick}/> : (
           <div styleName='main-container'>
           <div styleName='photo-container'>
             <div  styleName="main-column">
@@ -87,7 +88,7 @@ class App extends Component {
             </div>
           </div>
         </div>
-        )}
+        )} */}
       </div>
     )
   }

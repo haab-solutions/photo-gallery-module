@@ -16,6 +16,10 @@ class Modal extends Component {
     this.setCurrentPhoto = this.setCurrentPhoto.bind(this);
   }
 
+  componentDidMount() {
+    this.currentPhotoEffects()
+  }
+
   removePrevCurrentPhotoEffects() {
     document.getElementById(`${this.state.currentPhotoId}`).style.border = "none"
   }
@@ -23,6 +27,17 @@ class Modal extends Component {
   currentPhotoEffects() {
     document.getElementById(`${this.state.currentPhotoId}`).style.border = "solid #484848 2px";
     // console.log(image)
+    // transform if current card >=2 translate
+    const images = document.getElementsByClassName('image')
+    for (let i = 0; i < images.length; i++){
+      // console.log(parseInt(images[i].id))
+      if (parseInt(images[i].id) !== this.state.currentPhotoId) {
+        images[i].style.opacity = '0.7';
+      }
+      if (parseInt(images[i].id) === this.state.currentPhotoId) {
+        images[i].style.opacity = '1'
+      }
+    }
   }
 
   prevClick() {
@@ -64,11 +79,11 @@ class Modal extends Component {
           </div>
           <div styleName="photo-carousel-description-container">
             <div styleName="photo-carousel">
-              <div styleName="photo-carousel-offset">
-                <div styleName="photo-carousel-wrapper">
-                  {this.props.photos.map((photo, index) => <div key={index} styleName='card' ><img id={`${index}`} src={photo['src']} onClick={this.setCurrentPhoto}/></div>)}
+
+                <div styleName="photo-carousel-wrapper" style ={{'transform': `translateX(-${this.state.currentPhotoId*(100/this.props.photos.length)}%)`}}>
+                  {this.props.photos.map((photo, index) => <div key={index} styleName='card' ><img id={`${index}`} className="image" src={photo['src']} onClick={this.setCurrentPhoto}/></div>)}
                 </div>
-              </div>
+
             </div>
             <div styleName="info" >
               <div styleName="photo-index">{`${this.state.currentPhotoId + 1}/${this.props.photos.length}`}</div>
