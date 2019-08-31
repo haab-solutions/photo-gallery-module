@@ -71,11 +71,11 @@ class Modal extends Component {
               </div>
             </div>
             <div styleName="info" >
-              <div >{`${this.state.currentPhotoId + 1}/${this.props.photos.length}`}</div>
-              <div data-test="description">
+              <div styleName="photo-index">{`${this.state.currentPhotoId + 1}/${this.props.photos.length}`}</div>
+              <div data-test="description" styleName="description">
                 {property_description}
               </div>
-              <div>Photo Verified by Airbnb</div>
+              <div styleName="airbnb">Photo Verified by Airbnb</div>
             </div>
           </div>
         </div>
