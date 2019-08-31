@@ -62,17 +62,21 @@ class Modal extends Component {
               </svg>
             </button>
           </div>
-          <div styleName="photo-carousel">
-            <div styleName="photo-carousel-wrapper">
-              {this.props.photos.map((photo, index) => <div key={index} styleName='card' ><img id={`${index}`} src={photo['src']} onClick={this.setCurrentPhoto}/></div>)}
+          <div styleName="photo-carousel-description-container">
+            <div styleName="photo-carousel">
+              <div styleName="photo-carousel-offset">
+                <div styleName="photo-carousel-wrapper">
+                  {this.props.photos.map((photo, index) => <div key={index} styleName='card' ><img id={`${index}`} src={photo['src']} onClick={this.setCurrentPhoto}/></div>)}
+                </div>
+              </div>
             </div>
-          </div>
-          <div styleName="info" >
-            <div >{`${this.state.currentPhotoId + 1}/${this.props.photos.length}`}</div>
-            <div data-test="description">
-              {property_description}
+            <div styleName="info" >
+              <div >{`${this.state.currentPhotoId + 1}/${this.props.photos.length}`}</div>
+              <div data-test="description">
+                {property_description}
+              </div>
+              <div>Photo Verified by Airbnb</div>
             </div>
-            <div>Photo Verified by Airbnb</div>
           </div>
         </div>
       </div>
