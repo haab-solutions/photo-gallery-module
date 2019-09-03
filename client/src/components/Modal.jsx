@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import CSSModules from 'react-css-modules';
 import styles from './modal.css';
 
@@ -71,7 +70,7 @@ class Modal extends Component {
         </div>
         <div styleName="gallery">
           <div styleName="button-container">
-            <button data-test="hide-modal"  styleName="hide-modal" onClick={this.props.onClick}>
+            <button id="hide-modal" data-test="hide-modal"  styleName="hide-modal" onClick={this.props.onClick}>
               <svg viewBox="0 0 24 24" styleName="hide-modal-svg">
               <path d="m23.25 24c-.19 0-.38-.07-.53-.22l-10.72-10.72-10.72 10.72c-.29.29-.77.29-1.06 0s-.29-.77 0-1.06l10.72-10.72-10.72-10.72c-.29-.29-.29-.77 0-1.06s.77-.29 1.06 0l10.72 10.72 10.72-10.72c.29-.29.77-.29 1.06 0s .29.77 0 1.06l-10.72 10.72 10.72 10.72c.29.29.29.77 0 1.06-.15.15-.34.22-.53.22" fillRule="evenodd"></path>
               </svg>
@@ -79,11 +78,11 @@ class Modal extends Component {
           </div>
           <div styleName="photo-carousel-description-container">
             <div styleName="photo-carousel">
-
+              <div styleName="photo-carousel-offset">
                 <div styleName="photo-carousel-wrapper" style ={{'transform': `translateX(-${this.state.currentPhotoId*(100/this.props.photos.length)}%)`}}>
                   {this.props.photos.map((photo, index) => <div key={index} styleName='card' ><img id={`${index}`} className="image" src={photo['src']} onClick={this.setCurrentPhoto}/></div>)}
                 </div>
-
+              </div>
             </div>
             <div styleName="info" >
               <div styleName="photo-index">{`${this.state.currentPhotoId + 1}/${this.props.photos.length}`}</div>

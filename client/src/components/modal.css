@@ -84,6 +84,7 @@
 }
 
 .hide-modal, .nextPhoto, .prevPhoto {
+  display: inline-block;
   border: none;
 }
 
@@ -114,16 +115,21 @@
 }
 
 .photo-carousel {
+  display: block;
+  margin: auto;
   position: relative;
   height: 100%;
 }
 
-/* .photo-carousel-offset {
-  box-sizing: border-box;
+.photo-carousel-offset {
+  display: flex;
   width: 100%;
-  background-color: white;
+  height: 96px;
+  box-sizing: border-box;
+  background-color: #fff;
   padding-right: 52px;
-} */
+  align-items: center
+}
 
 .photo-carousel-wrapper {
   position: absolute;
@@ -138,6 +144,7 @@
   position: absolute;
   top: 152px;
   width: 294px;
+  padding-right: 52px;
 }
 
 .photo-index {
