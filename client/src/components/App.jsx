@@ -14,7 +14,8 @@ class App extends Component {
 
   componentDidMount(){
     const { id } = this.props.match.params;
-    axios.get(`/api/photos/${id}`)
+    // http://localhost:3000/api/photos/1
+    axios.get(`http://localhost:3001/api/photos/${id}`)
       .then((response) => {
         this.setState({
           description: response.data[0][0],
