@@ -31,8 +31,19 @@ describe('Photo Gallery', () => {
     }
   ]
 
+  const description={id: 1, property_description: "quod a nam"}
+
+  const wrapper = shallow(<App photos={photos}/>)
+
   it('displays images', () => {
-    const wrapper = shallow(<App photos={photos}/>)
     expect(wrapper.contains(<img src="https://bnbair.s3-us-west-1.amazonaws.com/2.jpg"/>)).toEqual(true);
+  })
+
+  it('toggles Modal on and off', () => {
+    const wrapper = mount(<App description={description} photos={photos}/>)
+    wrapper.find('[data-test="view-modal"]').simulate('click');
+    expect(wrapper.state().toggleModal).toEqual(true);
+    wrapper.find('[data-test="hide-modal"]').simulate('click');
+    expect(wrapper.state().toggleModal).toEqual(false);
   })
 })

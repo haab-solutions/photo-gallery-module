@@ -3,7 +3,6 @@ const db = require('./db');
 const bodyParser = require('body-parser');
 const Promise = require("bluebird");
 const models = require('./models');
-// const models = Promise.promisifyAll(require('./models'));
 const app = express();
 const port = 3000;
 
@@ -14,8 +13,9 @@ app.use(bodyParser.urlencoded({ extended: true}))
 app.get('/', (req, res) => res.send('Hello World'))
 
 app.get('/api/photos/:propertyId', (req, res) => {
+  const id = req.params.propertyId;
   const modelsPropertyListingGet = Promise.promisify(models.propertyListing.get)
-  modelsPropertyListingGet((results) =>
+  modelsPropertyListingGet(id, (results) =>
     res.json(results))
     .catch((err) => console.log(err))
 })
