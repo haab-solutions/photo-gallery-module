@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const Promise = require("bluebird");
 const models = require('./models');
 const app = express();
-const port = 3000;
+const port = 3001;
 
 app.use('/listing/:id', express.static('public'))
 
