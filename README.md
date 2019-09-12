@@ -43,5 +43,5 @@ npm install
  - app.post('api/photos/:propertyId')
  - app.get('api/photos/:propertyId')
  - app.put('api/photos/:propertyId')
- - app.delete('api/photo/:propertyId')
+ - app.delete('api/photos/:propertyId')
 
