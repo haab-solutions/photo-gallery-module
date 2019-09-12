@@ -15,7 +15,8 @@ app.use('/listing/:id', express.static('public'))
 
 app.use(bodyParser.urlencoded({ extended: true}))
 
-app.get('/', (req, res) => res.send('Hello World'))
+// app.get('/', (req, res) => res.send('Hello World'))
+
 app.get('/api/photos/:propertyId', (req, res) => {
   const id = req.params.propertyId;
   const modelsPropertyListingGet = Promise.promisify(models.propertyListing.get)

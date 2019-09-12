@@ -4,16 +4,17 @@
 
 ## Related Projects
 
-  - https://github.com/haab-solutions/reservation-module
-  - https://github.com/haab-solutions/photo-gallery-module
-  - https://github.com/haab-solutions/reviews-module
-  - https://github.com/haab-solutions/recommendations-module
+  - https://github.com/Dragon-Scaling/Reservation_service
+  - https://github.com/Dragon-Scaling/photo_gallery_service
+  - https://github.com/Dragon-Scaling/Review_service
+  - hhttps://github.com/Dragon-Scaling/Recommendations_Service
 
 ## Table of Contents
 
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
+1. [APIs](#development)
 
 ## Usage
 
@@ -36,4 +37,11 @@ From within the root directory:
 npm install -g webpack
 npm install
 ```
+
+## CRUD APIs
+
+ - app.post('api/photos/:propertyId')
+ - app.get('api/photos/:propertyId')
+ - app.put('api/photos/:propertyId')
+ - app.delete('api/photo/:propertyId')
 
