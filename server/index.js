@@ -1,5 +1,5 @@
 const express = require('express');
-const db = require('./db');
+const pool = require('./db');
 const bodyParser = require('body-parser');
 const Promise = require("bluebird");
 const models = require('./models');
@@ -9,7 +9,7 @@ const cors = require('cors');
 
 app.use(cors())
 
-app.use('/', express.static('public'))
+// app.use('/', express.static('public'))
 app.use('/listing/:id', express.static('public'))
 
 
@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true}))
 
 // app.get('/', (req, res) => res.send('Hello World'))
 
-app.get('/api/photos/:propertyId', (req, res) => {
+app.get('api/property/:propertyId/photos', (req, res) => {
   const id = req.params.propertyId;
   const modelsPropertyListingGet = Promise.promisify(models.propertyListing.get)
   modelsPropertyListingGet(id, (results) =>

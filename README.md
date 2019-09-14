@@ -1,6 +1,7 @@
 # Project Name
 
 > Project description
+Photo gallery scaling
 
 ## Related Projects
 
@@ -19,6 +20,8 @@
 ## Usage
 
 > Some usage instructions
+ - must comment in image downloader loops.
+ - postgres is using windows login due to windows idiosyncracies.
 
 ## Requirements
 
@@ -40,8 +43,8 @@ npm install
 
 ## CRUD APIs
 
- - app.post('api/photos/:propertyId')
- - app.get('api/photos/:propertyId')
- - app.put('api/photos/:propertyId')
- - app.delete('api/photos/:propertyId')
+ - post('api/property/:propertyId/photos')
+ - get('api/property/:propertyId/photos')
+ - put('api/property/:propertyId/photos/:photoId')
+ - delete('api/property/:propertyId/photos/:photoId')
 
