@@ -8,7 +8,7 @@ Photo gallery scaling
   - https://github.com/Dragon-Scaling/Reservation_service
   - https://github.com/Dragon-Scaling/photo_gallery_service
   - https://github.com/Dragon-Scaling/Review_service
-  - hhttps://github.com/Dragon-Scaling/Recommendations_Service
+  - https://github.com/Dragon-Scaling/Recommendations_Service
 
 ## Table of Contents
 
@@ -45,7 +45,7 @@ npm install
 
  - post('api/property/:propertyId/photos')
  - get('api/property/:propertyId/photos')
- - get('api/property/:propertyId/photos/:photoId)
+ - get('api/property/:propertyId/photos/:photoId')
  - put('api/property/:propertyId/photos/:photoId')
  - delete('api/property/:propertyId/photos/:photoId')
 
