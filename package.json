@@ -15,7 +15,7 @@
     "start:db": "sudo service postgresql start",
     "create:db": "createdb listings",
     "mount:db": "psql -d listings < ./server/schema.sql",
-    "seed:db": "node ./server/db/seed.js",
+    "create:csv": "node --max-old-space-size=16384 ./server/db/seed.js",
     "pull": "node ./server/db/imagedownloader.js"
   },
   "dependencies": {

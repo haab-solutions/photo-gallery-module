@@ -8,7 +8,7 @@ const pool = new Pool({
   port: 5432,
 })
 
-console.log('Postgres Connection Hit')
+console.log('Postgres Connection Hit');
 
 module.exports = pool
 
