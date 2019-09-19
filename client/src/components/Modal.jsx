@@ -42,7 +42,6 @@ class Modal extends Component {
   prevClick() {
     this.removePrevCurrentPhotoEffects();
     this.setState({currentPhotoId: this.state.currentPhotoId - 1}, () => this.currentPhotoEffects());
-
   }
 
   nextClick() {
@@ -56,7 +55,8 @@ class Modal extends Component {
   }
 
   render() {
-    const { property_description } = this.props.description
+    console.log(this.props.photos[this.state.currentPhotoId].property_description)
+    const { property_description } = this.props.photos[this.state.currentPhotoId]
     return (
       <div styleName="modal">
         <div styleName="portrait">

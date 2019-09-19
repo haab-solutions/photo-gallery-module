@@ -8,9 +8,25 @@ const pool = new Pool({
   port: 5432,
 })
 
+pool.connect();
+
+pool.query('SELECT $1:: text as message', ['Hello World'], (err, res) => {
+  console.log(err ? err.stack : res.rows[0].message);
+})
+
+const getListingPhotos = function (propertyId, callback) {
+  pool.query(`SELECT * FROM photos WHERE propertyListing_id = ${propertyId}`, (err, results, fields) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, results)
+    }
+  });
+};
+
 console.log('Postgres Connection Hit');
 
-module.exports = pool
+module.exports = {pool, getListingPhotos}
 
 
 // var mysql = require('mysql');
