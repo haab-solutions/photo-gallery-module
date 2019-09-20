@@ -6,6 +6,7 @@ const cors = require('cors');
 const pool = require('./db');
 const Promise = require("bluebird");
 const models = require('./models');
+require('newrelic');
 
 app.use(cors())
 app.use('/listing/:id', express.static('public'))
@@ -15,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true}))
 // app.use('/', express.static('public'))
 
 app.get('/api/photos/:propertyId', (req, res) => {
-  console.log(req.params.propertyId)
+  console.log(req.params.propertyId);
   const { propertyId } = req.params;
   pool.getListingPhotos(propertyId, (err, data) => {
     if (err) {
@@ -27,6 +28,49 @@ app.get('/api/photos/:propertyId', (req, res) => {
     }
   });
 });
+
+app.post('/api/photos/:propertyId', (req, res) => {
+  console.log(req.params.propertyId);
+  const { id } = req.params;
+  pool.postListingPhotos(proopertyId, (err, data) => {
+    if (err) {
+      console.log('SERVER POST LISTING PHOTOS ERROR: ', err);
+      res.status(500).send(err);
+    } else {
+      console.log('SERVER POST LISTING PHOTOS SUCCESS');
+      res.status(201).send(data.rows);
+    }
+  });
+})
+
+app.put('/api/photos/:id', (req, res) => {
+  console.log(req.params.id);
+  const { id } = req.params;
+  pool.postListingPhotos(id, (err, data) => {
+    if (err) {
+      console.log('SERVER POST LISTING PHOTOS ERROR: ', err);
+      res.status(500).send(err);
+    } else {
+      console.log('SERVER POST LISTING PHOTOS SUCCESS');
+      res.status(201).send(data.rows);
+    }
+  });
+})
+
+app.delete('/api/photos/:id', (req, res) => {
+  console.log(req.params.id);
+  const { id } = req.params;
+  pool.postListingPhotos(id, (err, data) => {
+    if (err) {
+      console.log('SERVER POST LISTING PHOTOS ERROR: ', err);
+      res.status(500).send(err);
+    } else {
+      console.log('SERVER POST LISTING PHOTOS SUCCESS');
+      res.status(201).send(data.rows);
+    }
+  });
+})
+
 
 // app.get('/api/photos/:id', (req, res) => {
 //   console.log(req.params.id);
