@@ -21,6 +21,7 @@ coverage
 .grunt
 
 # Compiled Dirs (http://nodejs.org/api/addons.html)
+hello.yml
 build/
 dist/
 faker_data/

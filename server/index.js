@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require('express');
 const app = express();
 const port = 3001;
@@ -6,14 +7,13 @@ const cors = require('cors');
 const pool = require('./db');
 const Promise = require("bluebird");
 const models = require('./models');
-require('newrelic');
 
 app.use(cors())
-app.use('/listing/:id', express.static('public'))
+// app.use('/listing/:id', express.static('public'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true}))
 
-// app.use('/', express.static('public'))
+app.use('/', express.static('public'))
 
 app.get('/api/photos/:propertyId', (req, res) => {
   console.log(req.params.propertyId);
@@ -24,7 +24,7 @@ app.get('/api/photos/:propertyId', (req, res) => {
       res.status(500).send(error);
     } else {
       console.log('SERVER GET LISTING PHOTOS SUCCESS');
-      res.status(201).send(data.rows);
+      res.status(200).send(data.rows);
     }
   });
 });

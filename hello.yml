@@ -1,5 +1,5 @@
 config:
-  target: 'https://localhost:3001/listing/89'
+  target: 'http://localhost:3001'
   phases:
     - duration: 60
       arrivalRate: 20
@@ -8,5 +8,7 @@ config:
       x-my-service-auth: '987401838271002188298567'
 scenarios:
   - flow:
-    - get:
-        url: "/api/photos/:propertyId"
+    - loop:
+      - get:
+          url: "/api/photos/{{$randomNumber(1,10000)}}"
+      count: 250
