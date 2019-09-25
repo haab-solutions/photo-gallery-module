@@ -15,7 +15,7 @@ class App extends Component {
   componentDidMount(){
     const { id } = this.props.match.params;
     // http://localhost:3000/api/photos/1
-    axios.get(`http://localhost:3001/api/photos/${id}`)
+    axios.get(`http://ec2-13-57-181-47.us-west-1.compute.amazonaws.com:3001/api/photos/${id}`)
       .then((response) => {
         console.log(response.data)
         this.setState({

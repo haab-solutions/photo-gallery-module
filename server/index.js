@@ -32,7 +32,7 @@ app.get('/api/photos/:propertyId', (req, res) => {
 app.post('/api/photos/:propertyId', (req, res) => {
   console.log(req.params.propertyId);
   const { id } = req.params;
-  pool.postListingPhotos(proopertyId, (err, data) => {
+  pool.postListingPhotos(propertyId, (err, data) => {
     if (err) {
       console.log('SERVER POST LISTING PHOTOS ERROR: ', err);
       res.status(500).send(err);

@@ -6,7 +6,8 @@ const fs = require('file-system');
 // const writeListings = fs.createWriteStream('listingsData.csv');
 // writeListings.write('id\n', 'utf8');
 
-const writePhotos = fs.createWriteStream('photosData.csv');
+//change filename for each iteration
+const writePhotos = fs.createWriteStream('photosData3.csv');
 writePhotos.write('id, src, property_description, propertyListing_id\n', 'utf8');
 
 // function writeTenMillionListings(writer, encoding, callback) {
@@ -39,9 +40,18 @@ writePhotos.write('id, src, property_description, propertyListing_id\n', 'utf8')
 // });
 
 function write90MillionPhotos(writer, encoding, callback) {
-  let id = 0;
-  let i = 90000000;
-  let propertyId = 1;
+  // id 0 - 30,000,000
+  // let id = 0;
+  // let i = 90000000;
+  //id 30,000,000 - 60,000,000
+  // id = 30000000;
+  // i = 60000000;
+  // id 60,000,000 - 90,000,000
+  id = 60000000
+  i = 30000000;
+  // let propertyId = 1;
+  // let propertyId = 3333333;
+  let propertyId = 6666666;
   function write() {
     let ok = true;
     do {
@@ -61,6 +71,7 @@ function write90MillionPhotos(writer, encoding, callback) {
       if(id % 1000000 === 0) {
         console.log(id)
       }
+      //change condition based on iteration
     } while (i > 0 && ok);
     if (i > 0) {
       writer.once('drain', write);
