@@ -9,10 +9,12 @@ const Promise = require("bluebird");
 const models = require('./models');
 
 app.use(cors())
+// for service alone
 // app.use('/listing/:id', express.static('public'))
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true}))
-
+//for proxy
 app.use('/', express.static('public'))
 
 app.get('/api/photos/:propertyId', (req, res) => {

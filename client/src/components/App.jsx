@@ -15,14 +15,16 @@ class App extends Component {
   componentDidMount(){
     const { id } = this.props.match.params;
     // http://localhost:3000/api/photos/1
-    axios.get(`http://ec2-13-57-181-47.us-west-1.compute.amazonaws.com:3001/api/photos/${id}`)
+    // http://ec2-13-57-36-74.us-west-1.compute.amazonaws.com:3001/api/photos/${id}
+    // for proxy, change to relative path to reference the proxy url.
+    axios.get(`/api/photos/${id}`)
       .then((response) => {
-        console.log(response.data)
-        this.setState({
-          // description: response.data[0].property_description,
-          photos: response.data
-        })
+      console.log(response.data)
+      this.setState({
+        // description: response.data[0].property_description,
+        photos: response.data
       })
+    })
   }
 
   render() {
