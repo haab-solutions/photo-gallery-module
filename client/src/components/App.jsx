@@ -7,7 +7,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      description: {},
+      // description: {},
       photos: [],
     }
   }
@@ -17,9 +17,10 @@ class App extends Component {
     // http://localhost:3000/api/photos/1
     axios.get(`http://localhost:3001/api/photos/${id}`)
       .then((response) => {
+        console.log(response.data)
         this.setState({
-          description: response.data[0][0],
-          photos: response.data[1]
+          // description: response.data[0].property_description,
+          photos: response.data
         })
       })
   }
